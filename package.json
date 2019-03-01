@@ -1,0 +1,25 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Pavlo Ilchuk",
+  "license": "ISC",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "^2.1.5"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
