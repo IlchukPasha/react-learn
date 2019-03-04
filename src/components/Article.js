@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+// import React, {Component, PureComponent} from 'react';
+import React, {PureComponent} from 'react';
 
-class Article extends Component {
+// class Article extends Component {
+class Article extends PureComponent { // PureComponent має в собі реалізований ShouldComponentUpdate для оптимізації
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -23,22 +25,32 @@ class Article extends Component {
     });
   }
 
+  // componentWillMount()  use for get data from server
+
   render() {
     const { article } = this.props;
-    const body = this.state.isOpen && <section>{article.text}</section>
+    const body = this.state.isOpen && <section className="card-text">{article.text}</section>
     return (
-      <div>
-        <h2>
-          {article.title}
-          <button onClick={this.handleClick}>
-            {this.state.isOpen ? 'close' : 'open'}
-          </button>
-        </h2>
-        {body}
-        <h3>creation date: {(new Date(article.date)).toDateString()}</h3>
+      <div className="card mx-auto" style= {{ width: '80%' }}>
+        <div className="card-header">
+          <h2>
+            {article.title}
+            <button onClick={this.handleClick} className="btn btn-primary btn-lg float-right">
+              {this.state.isOpen ? 'close' : 'open'}
+            </button>
+          </h2>
+        </div>
+        <div className="card-body">
+          <h6 className="card-subtitle text-muted" style={{ marginBottom: '10px' }}>
+            creation date: {(new Date(article.date)).toDateString()}
+          </h6>
+          {body}
+        </div>
       </div>
     )
   }
+
+  // componentDidMount()
 }
 
 // function Article(props) {
